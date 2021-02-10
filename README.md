@@ -1,1 +1,3 @@
-# ionic-react-Template-
+# ionic-react-Template
+
+<h1>Testing area</h1>
