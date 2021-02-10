@@ -1,0 +1,7 @@
+{
+  "name": "rate-mate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
