@@ -25,6 +25,8 @@ const Home: React.FC = () => {
             <IonIcon icon={add} />
           </IonFabButton>
         </IonFab>
+      
+        
     </IonPage>
   );
 };
