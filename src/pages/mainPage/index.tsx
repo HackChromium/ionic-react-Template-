@@ -14,6 +14,9 @@ import {
 	IonSearchbar,
 	IonToolbar,
 } from "@ionic/react";
+import GoogleMapReact from "google-map-react";
+import LocationPin from "../../components/LocationPin";
+import "./map.css";
 
 const MainPage = (props: any) => {
 	return (
@@ -43,6 +46,20 @@ const MainPage = (props: any) => {
 					</IonToolbar>
 				</IonHeader>
 				<IonContent>
+					<div style={{ height: "100vh", width: "100%" }}>
+						<GoogleMapReact
+							defaultCenter={props.point}
+							defaultZoom={11}
+							bootstrapURLKeys={{
+								key: "AIzaSyBT36lS0WRB6ogD2PAFCIZT9UoGca8MVaY",
+							}}>
+							<LocationPin
+								lat={props.point.lat}
+								lng={props.point.lng}
+								text="This just a sample address"
+							/>
+						</GoogleMapReact>
+					</div>
 					<IonFab horizontal="end" vertical="bottom" slot="fixed">
 						<IonFabButton>
 							<IonIcon name="add-outline" />

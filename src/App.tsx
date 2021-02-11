@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
-import Test from './pages/Test'
-=======
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Home from "./pages/Home";
-
->>>>>>> 8e2c0e189a93c2fe23a2aa15e0ea8d305024fdea
+import Test from "./pages/Test";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -32,21 +24,6 @@ import "./theme/variables.css";
 import MainPage from "./pages/mainPage";
 
 const App: React.FC = () => (
-<<<<<<< HEAD
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route exact path='/test' component={Test} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-=======
 	<IonApp>
 		<IonReactRouter>
 			<IonRouterOutlet>
@@ -57,12 +34,12 @@ const App: React.FC = () => (
 					<Redirect to="/home" />
 				</Route>
 				<Route exact path="/main">
-					<MainPage />
+					<MainPage point={{ lat: 22.406437, lng: 87.668472 }} />
 				</Route>
+				<Route exact path="/test" component={Test} />
 			</IonRouterOutlet>
 		</IonReactRouter>
 	</IonApp>
->>>>>>> 8e2c0e189a93c2fe23a2aa15e0ea8d305024fdea
 );
 
 export default App;
