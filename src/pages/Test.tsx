@@ -15,7 +15,7 @@ const Test = () => {
     //This thing calls the above function
       useEffect(()=>{
           getCurrentPosition()},[] //since the second parameter is empty it is called only once
-      )
+      ) 
 
   return (
     <IonPage>
