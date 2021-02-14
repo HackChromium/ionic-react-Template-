@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonFab, IonFabButton, IonIcon } from '@ionic/react';
-import { add, settings, share, person, arrowForwardCircle, arrowBackCircle, arrowUpCircle, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import { add } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 

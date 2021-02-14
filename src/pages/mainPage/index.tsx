@@ -13,28 +13,32 @@ import {
 	IonPage,
 	IonSearchbar,
 	IonToolbar,
+	IonFabList,
 } from "@ionic/react";
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import GoogleMapReact from "google-map-react";
 import LocationPin from "../../components/LocationPin";
 import { Plugins } from '@capacitor/core';
+import { add, settings, share, person, arrowForwardCircle, arrowBackCircle, arrowUpCircle, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import { logoNpm, logoGithub, logoJavascript } from 'ionicons/icons';
 import "./map.css";
 const { Geolocation } = Plugins;
 const MainPage = (props: any) => {
-	const[latitude,setlati]=useState(0);
-	const[longitude,setlongi]=useState(0);
-	 //getting the geolocation
-	 const getCurrentPosition= async() =>{
-        const coordinates = await Geolocation.getCurrentPosition();
-        console.log('Current', coordinates);
+	const [latitude, setlati] = useState(0);
+	const [longitude, setlongi] = useState(0);
+	//getting the geolocation
+	const getCurrentPosition = async () => {
+		const coordinates = await Geolocation.getCurrentPosition();
+		console.log('Current', coordinates);
 		setlati(coordinates.coords.latitude);
 		setlongi(coordinates.coords.longitude);
-      }
-	  useEffect(()=>{
-		getCurrentPosition()},[] //since the second parameter is empty it is called only once
-	) 
-	
+	}
+	useEffect(() => {
+		getCurrentPosition()
+	}, [] //since the second parameter is empty it is called only once
+	)
+
 	return (
 		<>
 			<IonMenu side="start" contentId="main-content">
@@ -76,11 +80,24 @@ const MainPage = (props: any) => {
 							/>
 						</GoogleMapReact>
 					</div>
-					<IonFab horizontal="end" vertical="bottom" slot="fixed">
+
+
+
+					{/*-- fab placed in the center of the content with a list on each side --*/}
+					<IonFab vertical="bottom" horizontal="end" slot="fixed">
 						<IonFabButton>
-							<IonIcon name="add-outline" />
-						</IonFabButton>
+							<IonIcon icon={add} />
+						</IonFabButton >
+						<IonFabList color="light" side="start">
+							<IonFabButton><IonIcon icon={logoGithub} /></IonFabButton>
+							<IonFabButton><IonIcon icon={logoNpm} /></IonFabButton>
+							<IonFabButton><IonIcon icon={logoJavascript} /></IonFabButton>
+						</IonFabList>
 					</IonFab>
+
+
+
+
 				</IonContent>
 			</IonPage>
 		</>
