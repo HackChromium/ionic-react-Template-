@@ -27,12 +27,6 @@ const config= require('./config')
 const { Geolocation } = Plugins;
 const MainPage = (props: any) => {
 
-	const [latitude, setlati] = useState(0);
-	const [longitude, setlongi] = useState(0);
-	//getting the geolocation
-	const getCurrentPosition = async () => {
-		const coordinates = await Geolocation.getCurrentPosition();
-		console.log('Current', coordinates);
 
 	const[latitude,setlati]=useState(0);
 	const[longitude,setlongi]=useState(0);
@@ -48,7 +42,7 @@ const MainPage = (props: any) => {
 	}
 	useEffect(() => {
 		getCurrentPosition()
-	}, [] //since the second parameter is empty it is called only once
+	}, [] 
 	)
 
 	return (
