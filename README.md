@@ -3,5 +3,6 @@
 <h1>Testing area</h1>
 <ul>
   <li> 1)   Just run "npm i" in your  project directory.</li>
-  <li> 2)   To serve the code in yor local machine run "ionic serve".</li>
+  <li> 2)   Add your google map API token in  "ionic-react-Template-\src\pages\mainPage\config.json" </li>
+  <li> 3)   To serve the code in yor local machine run "ionic serve".</li>
 </ul>  
