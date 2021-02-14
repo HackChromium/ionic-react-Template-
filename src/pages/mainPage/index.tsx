@@ -14,8 +14,27 @@ import {
 	IonSearchbar,
 	IonToolbar,
 } from "@ionic/react";
-
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import GoogleMapReact from "google-map-react";
+import LocationPin from "../../components/LocationPin";
+import { Plugins } from '@capacitor/core';
+import "./map.css";
+const { Geolocation } = Plugins;
 const MainPage = (props: any) => {
+	const[latitude,setlati]=useState(0);
+	const[longitude,setlongi]=useState(0);
+	 //getting the geolocation
+	 const getCurrentPosition= async() =>{
+        const coordinates = await Geolocation.getCurrentPosition();
+        console.log('Current', coordinates);
+		setlati(coordinates.coords.latitude);
+		setlongi(coordinates.coords.longitude);
+      }
+	  useEffect(()=>{
+		getCurrentPosition()},[] //since the second parameter is empty it is called only once
+	) 
+	
 	return (
 		<>
 			<IonMenu side="start" contentId="main-content">
@@ -43,6 +62,20 @@ const MainPage = (props: any) => {
 					</IonToolbar>
 				</IonHeader>
 				<IonContent>
+					<div style={{ height: "100vh", width: "100%" }}>
+						<GoogleMapReact
+							defaultCenter={props.point}
+							defaultZoom={11}
+							bootstrapURLKeys={{
+								key: "AIzaSyBT36lS0WRB6ogD2PAFCIZT9UoGca8MVaY",
+							}}>
+							<LocationPin
+								lat={latitude}
+								lng={longitude}
+								text="This is a the perfect address"
+							/>
+						</GoogleMapReact>
+					</div>
 					<IonFab horizontal="end" vertical="bottom" slot="fixed">
 						<IonFabButton>
 							<IonIcon name="add-outline" />
