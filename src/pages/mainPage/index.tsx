@@ -23,14 +23,26 @@ import { Plugins } from '@capacitor/core';
 import { add, settings, share, person, arrowForwardCircle, arrowBackCircle, arrowUpCircle, logoVimeo, logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
 import { logoNpm, logoGithub, logoJavascript } from 'ionicons/icons';
 import "./map.css";
+const config= require('./config')
 const { Geolocation } = Plugins;
 const MainPage = (props: any) => {
+<<<<<<< HEAD
 	const [latitude, setlati] = useState(0);
 	const [longitude, setlongi] = useState(0);
 	//getting the geolocation
 	const getCurrentPosition = async () => {
 		const coordinates = await Geolocation.getCurrentPosition();
 		console.log('Current', coordinates);
+=======
+	const[latitude,setlati]=useState(0);
+	const[longitude,setlongi]=useState(0);
+	 //getting the geolocation
+	 const getCurrentPosition= async() =>{
+		const resutarunt = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=Resturant&key=${config.GOOGLE_API_KEY}`)
+        const coordinates = await Geolocation.getCurrentPosition();
+		console.log(resutarunt)
+        console.log('Current', coordinates);
+>>>>>>> google-maps-sanjay
 		setlati(coordinates.coords.latitude);
 		setlongi(coordinates.coords.longitude);
 	}
