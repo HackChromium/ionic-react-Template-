@@ -20,13 +20,16 @@ import GoogleMapReact from "google-map-react";
 import LocationPin from "../../components/LocationPin";
 import { Plugins } from '@capacitor/core';
 import "./map.css";
+const config= require('./config')
 const { Geolocation } = Plugins;
 const MainPage = (props: any) => {
 	const[latitude,setlati]=useState(0);
 	const[longitude,setlongi]=useState(0);
 	 //getting the geolocation
 	 const getCurrentPosition= async() =>{
+		const resutarunt = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=Resturant&key=${config.GOOGLE_API_KEY}`)
         const coordinates = await Geolocation.getCurrentPosition();
+		console.log(resutarunt)
         console.log('Current', coordinates);
 		setlati(coordinates.coords.latitude);
 		setlongi(coordinates.coords.longitude);
